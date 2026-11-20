@@ -1,0 +1,54 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Plus Jakarta Sans", system-ui, -apple-system, sans-serif;
+  --font-sans: "DM Sans", system-ui, -apple-system, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    font-family: var(--font-sans);
+    background-color: #f5f4f0;
+    color: #18191c;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+}
+
+@keyframes draw-stroke {
+  from {
+    stroke-dashoffset: var(--stroke-len, 100);
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.animate-draw-stroke {
+  stroke-dasharray: var(--stroke-len, 100);
+  stroke-dashoffset: var(--stroke-len, 100);
+  animation: draw-stroke 180ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+.animate-draw-stroke-delayed {
+  stroke-dasharray: var(--stroke-len, 100);
+  stroke-dashoffset: var(--stroke-len, 100);
+  animation: draw-stroke 160ms cubic-bezier(0.16, 1, 0.3, 1) 70ms forwards;
+}
+
+.animate-win-line {
+  stroke-dasharray: 420;
+  stroke-dashoffset: 420;
+  animation: draw-stroke 260ms cubic-bezier(0.16, 1, 0.3, 1) 80ms forwards;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-draw-stroke,
+  .animate-draw-stroke-delayed,
+  .animate-win-line {
+    animation: none !important;
+    stroke-dashoffset: 0 !important;
+  }
+}

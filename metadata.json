@@ -1,0 +1,6 @@
+{
+  "name": "Tic-Tac-Toe",
+  "description": "A clean, tactile Tic-Tac-Toe game supporting local two-player matches and an adjustable AI opponent.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
